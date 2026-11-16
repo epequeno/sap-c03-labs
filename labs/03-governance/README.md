@@ -11,6 +11,7 @@ Which control actually stops the action — the SCP, the resource policy, the pe
 - **No changes to existing SCPs or org-wide services.** Create a sandbox OU and a new SCP, then remove them.
 - Cost cap **under $2**. CloudTrail and Config only; **no Security Lake**, no org-wide GuardDuty.
 - If the account has no Organizations administration, do not fake it: produce the SCP, trail policy and bucket policy as reviewed JSON plus a design note, and record the blocked API call.
+- **Do not enable a Config recorder outside this lab.** This lab enables one in the sandbox account only and stops it at teardown.
 
 ## Build
 
