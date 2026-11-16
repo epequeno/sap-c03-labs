@@ -8,7 +8,7 @@ sync:
     @uv sync --quiet
 
 synth lab="02":
-    @cd infra && uv run cdk synth -c lab="{{lab}}" --quiet
+    @source ./scripts/lib.sh && cd infra && uv run cdk synth -c lab="{{lab}}" --quiet
 
 deploy lab="02":
     @./scripts/deploy.sh {{lab}}

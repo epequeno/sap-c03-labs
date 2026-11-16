@@ -3,5 +3,11 @@ __pycache__/
 *.pyc
 cdk.out/
 .cdk.staging/
+cdk.context.json
 .env
+.env.*
+!.env.example
+.aws/
+*.pem
+*.key
 .DS_Store

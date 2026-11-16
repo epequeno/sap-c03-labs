@@ -1,6 +1,14 @@
 # Shared helpers for the SAP-C03 lab scripts.
 # Sourced, never executed. Callers set their own shell options.
 
+# This project runs against the `arch` sandbox account. Every script and every
+# child process (aws, cdk) inherits these. Override any of them explicitly to
+# point a one-off command somewhere else.
+export AWS_PROFILE="${AWS_PROFILE:-arch}"
+export AWS_REGION="${AWS_REGION:-us-east-1}"
+export AWS_DEFAULT_REGION="${AWS_DEFAULT_REGION:-$AWS_REGION}"
+export CDK_DEFAULT_REGION="${CDK_DEFAULT_REGION:-$AWS_REGION}"
+
 declare -A LAB_SLUGS=(
   ["01"]="01-agentic-rag"
   ["02"]="02-multitenant-api"

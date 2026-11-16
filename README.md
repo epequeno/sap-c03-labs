@@ -2,6 +2,8 @@
 
 Seven small, disposable AWS labs that cover the SAP-C03 task list. Each one is deployed from CDK, evidenced, and destroyed the same day. This is scaffold: the repo, the tooling, and one seeded README per lab exist; the stack bodies are the study work.
 
+The lab plan and study notes stay out of this repo; each lab README carries the question, artifact standard, and exam mapping.
+
 ## Rules
 
 - **Sandbox account only.** Never production, never a shared org account.
@@ -20,6 +22,8 @@ just deploy 02          # uv sync, synth, deploy, then capture evidence
 just evidence 02        # re-capture without deploying
 just destroy 02         # cdk destroy, then assert no tagged resources remain
 ```
+
+Commands default to the `arch` profile and `us-east-1`, set in `scripts/lib.sh`; the `synth` recipe sources the same file. Override with `AWS_PROFILE=<profile>` for a one-off. Credentials come from that profile and are never stored in the repo.
 
 One stack exists at a time, selected by CDK context: `cdk deploy -c lab=02`. The app registers only stacks that have been written, so `lab=01` fails loudly until `infra/stacks/lab01_agentic_rag.py` exists.
 
@@ -60,6 +64,14 @@ Every lab README carries:
 9. **Interview line** — one paragraph on the trade-off, not a service list.
 
 `scripts/teardown.sh` writes the teardown timestamp into `cost.md` and fails if any tagged resource survives.
+
+## Public-repo hygiene
+
+This repo is public. Before committing:
+
+- No credentials, tokens, private keys, or `cdk.context.json`.
+- Redact account IDs, ARNs, principal names, request IDs, and resource names that identify an account in captured evidence.
+- Keep `.env` and local profile configuration out of git. Only the profile name belongs in `scripts/lib.sh`.
 
 ## Cost visibility
 
