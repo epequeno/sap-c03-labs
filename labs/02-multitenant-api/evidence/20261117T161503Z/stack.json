@@ -1,0 +1,25 @@
+{
+    "Status": "CREATE_COMPLETE",
+    "Outputs": [
+        {
+            "OutputKey": "UserPoolClientId",
+            "OutputValue": "7aj5go19tpu9drqr7lrcmbdmbp"
+        },
+        {
+            "OutputKey": "TableName",
+            "OutputValue": "SapC03Lab02-Records091F6ECA-B8TXC3PCE84T"
+        },
+        {
+            "OutputKey": "ApiUrl",
+            "OutputValue": "https://1oxvq4zndc.execute-api.us-east-1.amazonaws.com"
+        },
+        {
+            "OutputKey": "UserPoolId",
+            "OutputValue": "us-east-1_ZerugBrZj"
+        },
+        {
+            "OutputKey": "LogGroupName",
+            "OutputValue": "SapC03Lab02-RequestLogs6647DCB7-RqF8asCeGFoT"
+        }
+    ]
+}

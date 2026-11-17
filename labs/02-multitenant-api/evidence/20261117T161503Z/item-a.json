@@ -1,0 +1,13 @@
+{
+    "Item": {
+        "payload": {
+            "S": "tenant a record"
+        },
+        "tenant_id": {
+            "S": "tenant-a"
+        },
+        "record_id": {
+            "S": "record-a"
+        }
+    }
+}
