@@ -1,0 +1,9 @@
+[
+  "arn:aws:apigateway:us-east-1::/apis/akmmcnn1s5",
+  "arn:aws:apigateway:us-east-1::/apis/akmmcnn1s5/stages/$default",
+  "arn:aws:logs:us-east-1:<account-id>:log-group:SapC03Lab02-RequestLogs6647DCB7-SavBCYitkdYV",
+  "arn:aws:lambda:us-east-1:<account-id>:function:SapC03Lab02-Handler886CB40B-9KMM2JMlXbrP",
+  "arn:aws:cloudformation:us-east-1:<account-id>:stack/SapC03Lab02/64418c40-e2a3-11f1-a88c-0affd607d14b",
+  "arn:aws:cognito-idp:us-east-1:<account-id>:userpool/us-east-1_baNaisA4B",
+  "arn:aws:dynamodb:us-east-1:<account-id>:table/SapC03Lab02-Records091F6ECA-12DJN2P8P3FLB"
+]

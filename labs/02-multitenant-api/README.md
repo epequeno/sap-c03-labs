@@ -1,6 +1,6 @@
 # Lab 2 — Multi-tenant serverless API
 
-**Stack:** `infra/stacks/lab02_multitenant_api.py`. Implemented and evidenced. Evidence: `evidence/20261117T161503Z/`.
+**Stack:** `infra/stacks/lab02_multitenant_api.py`. Implemented and evidenced. Evidence: `evidence/20261117T162612Z/`.
 
 ## Question
 
@@ -16,6 +16,8 @@ Given one pooled API and two tenants, where does the isolation boundary live, an
 ## Build
 
 Cognito user pool with one app client and admin-managed groups `tenant-a` / `tenant-b`. **The app client is not the boundary; the group claim is.** The Lambda reads `cognito:groups` from the validated ID token, checks the path tenant to produce a deliberate 403, and builds the DynamoDB partition key from the token tenant only. The path tenant is never used as a data key.
+
+The pool enforces a 12-character password policy with upper/lower/number/symbol; MFA is optional and OAuth flows are disabled because the evidence harness uses the admin auth flow.
 
 DynamoDB is keyed `tenant_id` / `record_id` on on-demand billing. The partition key is tenant-scoped, so a handler that derives the key from the token cannot address another tenant's item. A condition expression would guard writes, not reads; the stronger read boundary is IAM `dynamodb:LeadingKeys` with per-tenant credentials, which this stack does not build.
 
@@ -50,7 +52,7 @@ The matching request `GET /tenants/tenant-a/records/record-a` with A's token ret
 
 ## Evidence
 
-`evidence/20261117T161503Z/` contains:
+`evidence/20261117T162612Z/` contains:
 
 - `token-claims-a.json`, `token-claims-b.json` — decoded claims; raw JWTs are never written.
 - `happy-a.status` = 200, `denied-a-to-b.status` = 403, `happy-b.status` = 200.
@@ -58,7 +60,8 @@ The matching request `GET /tenants/tenant-a/records/record-a` with A's token ret
 - `item-a.json`, `item-b.json` — the seeded records.
 - `tenant-mismatch-logs.json` — the CloudWatch refusal line.
 - `caller-identity.json` — redacted to `<account-id>` / `<caller-arn>`.
-- `tagged-resources.json`, `stack.json`, `cost.json`, `cost-total.txt`.
+- `tagged-resources.json` — live resources only; stale tag-index entries filtered.
+- `stack.json`, `cost.json`, `cost-total.txt`.
 
 `cost.md` carries the actual spend and the teardown timestamp.
 

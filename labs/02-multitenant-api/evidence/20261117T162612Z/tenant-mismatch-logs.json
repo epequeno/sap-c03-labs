@@ -1,0 +1,12 @@
+{
+    "events": [
+        {
+            "logStreamName": "2026/11/17/SapC03Lab02-Handler886CB40B-9KMM2JMlXbrP[$LATEST]09057a3207d848698a4c9697a0f5095d",
+            "timestamp": 1794932787551,
+            "message": "{\"event\": \"tenant_mismatch\", \"tenant\": \"tenant-a\", \"path_tenant\": \"tenant-b\", \"record_id\": \"record-b\"}\n",
+            "ingestionTime": 1794932796292,
+            "eventId": "40028338743663150306843716212068558295058064929831452676"
+        }
+    ],
+    "searchedLogStreams": []
+}

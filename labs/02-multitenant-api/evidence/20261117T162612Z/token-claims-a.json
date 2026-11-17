@@ -1,0 +1,22 @@
+{
+  "sub": "64f824f8-8001-7054-6208-286b361cd586",
+  "cognito:groups": [
+    "tenant-a"
+  ],
+  "email_verified": true,
+  "amr": [
+    "pwd"
+  ],
+  "iss": "https://cognito-idp.us-east-1.amazonaws.com/us-east-1_baNaisA4B",
+  "cognito:username": "64f824f8-8001-7054-6208-286b361cd586",
+  "origin_jti": "5b8a3026-2271-4782-abd5-60c0020e50d1",
+  "aud": "1tua1fic0d811347kb3sog46gl",
+  "acr": "urn:cognito:loa:1",
+  "event_id": "dbc8be55-8eae-49e2-8057-d8bc5a74b33d",
+  "token_use": "id",
+  "auth_time": 1794932784,
+  "exp": 1794936384,
+  "iat": 1794932785,
+  "jti": "f6565f74-ed5f-4c66-ad29-54f33728351b",
+  "email": "tenant-a@example.com"
+}

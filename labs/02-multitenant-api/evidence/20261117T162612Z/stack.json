@@ -3,23 +3,23 @@
     "Outputs": [
         {
             "OutputKey": "UserPoolClientId",
-            "OutputValue": "7aj5go19tpu9drqr7lrcmbdmbp"
+            "OutputValue": "1tua1fic0d811347kb3sog46gl"
         },
         {
             "OutputKey": "TableName",
-            "OutputValue": "SapC03Lab02-Records091F6ECA-B8TXC3PCE84T"
+            "OutputValue": "SapC03Lab02-Records091F6ECA-12DJN2P8P3FLB"
         },
         {
             "OutputKey": "ApiUrl",
-            "OutputValue": "https://1oxvq4zndc.execute-api.us-east-1.amazonaws.com"
+            "OutputValue": "https://akmmcnn1s5.execute-api.us-east-1.amazonaws.com"
         },
         {
             "OutputKey": "UserPoolId",
-            "OutputValue": "us-east-1_ZerugBrZj"
+            "OutputValue": "us-east-1_baNaisA4B"
         },
         {
             "OutputKey": "LogGroupName",
-            "OutputValue": "SapC03Lab02-RequestLogs6647DCB7-RqF8asCeGFoT"
+            "OutputValue": "SapC03Lab02-RequestLogs6647DCB7-SavBCYitkdYV"
         }
     ]
 }
