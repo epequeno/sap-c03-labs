@@ -4,13 +4,18 @@ version = "0.1.0"
 description = "Seven disposable AWS labs covering the SAP-C03 task list: deployed from CDK, evidenced, destroyed the same day."
 requires-python = ">=3.12"
 dependencies = [
-    "aws-cdk-lib>=2.160.0",
-    "constructs>=10.3",
+    "aws-cdk-lib>=2.257.0",
+    "constructs>=10.5.1",
     "boto3>=1.34",
 ]
 
 [dependency-groups]
-dev = ["pytest>=8", "ruff>=0.6"]
+dev = [
+    "cdk-nag>=3.0.2",
+    "cfn-lint>=1.60.1",
+    "pytest>=8",
+    "ruff>=0.6",
+]
 
 [tool.uv]
 package = false

@@ -60,6 +60,11 @@ def main() -> None:
     cdk.Tags.of(stack).add("Owner", OWNER)
     cdk.Tags.of(stack).add("TearDown", str(tear_down))
 
+    if app.node.try_get_context("nag"):
+        from cdk_nag import AwsSolutionsChecks
+
+        cdk.Validations.of(app).add_plugins(AwsSolutionsChecks(app, verbose=True))
+
     app.synth()
 
 

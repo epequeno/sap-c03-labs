@@ -27,7 +27,8 @@ fi
 aws resourcegroupstaggingapi get-resources \
   --tag-filters "Key=Project,Values=sap-c03-labs" "Key=Lab,Values=$lab" \
   --query 'ResourceTagMappingList[].ResourceARN' \
-  --output json >"$out/tagged-resources.json"
+  --output json | jq -r '.[]' | filter_existing_tagged_resources \
+  | jq -R 'select(length > 0)' | jq -s . >"$out/tagged-resources.json"
 
 # Tag-based cost needs Project activated as a cost allocation tag in Billing.
 start="$(date -u -d '7 days ago' +%F)"

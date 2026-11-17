@@ -34,6 +34,8 @@ Cost cap: under $1. Destroy the same day.
 
 from __future__ import annotations
 
+from pathlib import Path
+
 import aws_cdk as cdk
 from aws_cdk import aws_apigatewayv2 as apigwv2
 from aws_cdk import aws_apigatewayv2_authorizers as authorizers
@@ -65,6 +67,15 @@ class Lab02MultitenantApi(cdk.Stack):
             "TenantUsers",
             self_sign_up_enabled=False,
             sign_in_aliases=cognito.SignInAliases(email=True),
+            account_recovery=cognito.AccountRecovery.EMAIL_ONLY,
+            password_policy=cognito.PasswordPolicy(
+                min_length=12,
+                require_digits=True,
+                require_lowercase=True,
+                require_symbols=True,
+                require_uppercase=True,
+            ),
+            mfa=cognito.Mfa.OPTIONAL,
             deletion_protection=False,
             removal_policy=cdk.RemovalPolicy.DESTROY,
         )
@@ -79,6 +90,7 @@ class Lab02MultitenantApi(cdk.Stack):
         client = user_pool.add_client(
             "ApiClient",
             auth_flows=cognito.AuthFlow(admin_user_password=True),
+            disable_o_auth=True,
             generate_secret=False,
         )
 
@@ -102,7 +114,9 @@ class Lab02MultitenantApi(cdk.Stack):
             "Handler",
             runtime=lambda_.Runtime.PYTHON_3_13,
             handler="handler.handler",
-            code=lambda_.Code.from_asset("lambda/lab02"),
+            code=lambda_.Code.from_asset(
+                str(Path(__file__).resolve().parents[1] / "lambda" / "lab02")
+            ),
             timeout=cdk.Duration.seconds(10),
             environment={"TABLE_NAME": table.table_name},
             log_group=log_group,

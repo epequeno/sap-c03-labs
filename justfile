@@ -20,6 +20,22 @@ test:
 
 verify: lint test synth
 
+cfn-lint:
+    @if ls infra/cdk.out/*.template.json >/dev/null 2>&1; then \
+      uv run cfn-lint infra/cdk.out/*.template.json || \
+        echo "cfn-lint findings are advisory (non-blocking)"; \
+    else \
+      echo "no synthesized template for cfn-lint"; \
+    fi
+
+quality: verify cfn-lint
+
+nag lab="02":
+    @source ./scripts/lib.sh && cd infra && \
+      out="$(uv run cdk synth -c lab="{{lab}}" -c nag=1 --quiet 2>&1)"; \
+      rc=$?; printf '%s\n' "$out"; \
+      if [ $rc -ne 0 ]; then echo "cdk-nag findings are advisory (non-blocking)"; fi
+
 synth lab="02":
     @source ./scripts/lib.sh && cd infra && uv run cdk synth -c lab="{{lab}}" --quiet
 

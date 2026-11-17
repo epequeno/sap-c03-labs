@@ -17,14 +17,16 @@ The lab plan and study notes stay out of this repo; each lab README carries the 
 ## Use
 
 ```bash
-just verify             # local gate: ruff, pytest, synth
+just verify             # blocking local gate: ruff, pytest, synth
+just quality            # verify + cfn-lint (advisory)
+just nag 02             # cdk-nag findings (advisory)
 just preflight          # identity, Region, and visible budget/monitor
 just deploy 02          # uv sync, synth, deploy, then capture evidence
 just evidence 02        # re-capture without deploying
 just destroy 02         # cdk destroy, then assert no tagged resources remain
 ```
 
-Local CI is `just verify`: `ruff check`, `ruff format --check`, `pytest`, and `cdk synth`. Remote CI is deferred until the labs are finalized.
+`just verify` is the blocking local gate: `ruff check`, `ruff format --check`, `pytest`, and `cdk synth`. `just quality` adds `cfn-lint`, and `just nag` runs `cdk-nag`; both are advisory and never block. Remote CI is deferred until the labs are finalized.
 
 Commands default to the `arch` profile and `us-east-1`, set in `scripts/lib.sh`; the `synth` recipe sources the same file. Override with `AWS_PROFILE=<profile>` for a one-off. Credentials come from that profile and are never stored in the repo.
 

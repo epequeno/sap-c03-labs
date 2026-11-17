@@ -47,7 +47,9 @@ The final week is for evidence review and practice questions, not new infrastruc
 Until remote CI is added, every change runs:
 
 ```bash
-just verify   # ruff check, ruff format --check, pytest, cdk synth
+just verify   # blocking: ruff check, ruff format --check, pytest, cdk synth
+just quality  # verify plus cfn-lint (advisory)
+just nag 02   # cdk-nag findings (advisory)
 ```
 
 No dedicated budget resource is created. Cost caps are enforced by same-day teardown, `just destroy`, and the spend recorded in each lab's `cost.md`.
