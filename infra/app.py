@@ -16,7 +16,6 @@ import sys
 from datetime import date, timedelta
 
 import aws_cdk as cdk
-
 from stacks.lab02_multitenant_api import Lab02MultitenantApi
 
 PROJECT = "sap-c03-labs"
@@ -42,7 +41,9 @@ def main() -> None:
         )
         raise SystemExit(2)
 
-    tear_down = app.node.try_get_context("tearDown") or str(date.today() + timedelta(days=1))
+    tear_down = app.node.try_get_context("tearDown") or str(
+        date.today() + timedelta(days=1)
+    )
 
     stack = STACKS[lab](
         app,

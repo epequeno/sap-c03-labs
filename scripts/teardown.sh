@@ -11,15 +11,30 @@ stack="$(stack_name "$lab")"
 cd "$root"
 
 echo "== destroy $stack"
-(cd infra && uv run cdk destroy -c lab="$lab" --force)
+if aws cloudformation describe-stacks --stack-name "$stack" >/dev/null 2>&1; then
+  (cd infra && uv run cdk destroy -c lab="$lab" --force)
+else
+  echo "stack $stack already absent"
+fi
 
 echo
 echo "== verify nothing tagged survived"
-remaining="$(aws resourcegroupstaggingapi get-resources \
-  --tag-filters "Key=Project,Values=sap-c03-labs" "Key=Lab,Values=$lab" \
-  --query 'ResourceTagMappingList[].ResourceARN' --output text)"
+# The resource tagging API is eventually consistent after a delete. Poll it
+# rather than treating a stale entry as an orphaned resource.
+remaining=""
+raw=""
+for _ in 1 2 3 4 5 6 7 8 9 10 11 12; do
+  raw="$(aws resourcegroupstaggingapi get-resources \
+    --tag-filters "Key=Project,Values=sap-c03-labs" "Key=Lab,Values=$lab" \
+    --query 'ResourceTagMappingList[].ResourceARN' --output text)"
+  remaining="$(printf '%s\n' "$raw" | filter_existing_tagged_resources)"
+  if [[ -z "$remaining" ]]; then
+    break
+  fi
+  sleep 5
+done
 if [[ -n "${remaining//[[:space:]]/}" ]]; then
-  echo "still tagged after destroy — investigate before leaving the account:" >&2
+  echo "still tagged after destroy — investigate, or wait for the tag index:" >&2
   printf '%s\n' "$remaining" >&2
   exit 1
 fi
@@ -43,7 +58,13 @@ if aws ce get-cost-and-usage \
   --metrics UnblendedCost \
   --filter '{"Tags":{"Key":"Project","Values":["sap-c03-labs"]}}' \
   --output json >"$tmp" 2>/dev/null; then
-  total="$(jq -r '[.ResultsByTime[].Total.UnblendedCost.Amount | tonumber] | add // 0' "$tmp") USD"
+  if aws ce list-cost-allocation-tags --status Active \
+    --query 'CostAllocationTags[?TagKey==`Project`].TagKey' \
+    --output text 2>/dev/null | grep -qx 'Project'; then
+    total="$(jq -r '[.ResultsByTime[].Total.UnblendedCost.Amount | tonumber] | add // 0' "$tmp") USD"
+  else
+    total="not readable (Project cost allocation tag is not active)"
+  fi
 fi
 rm -f "$tmp"
 

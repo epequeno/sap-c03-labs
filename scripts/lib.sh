@@ -36,3 +36,60 @@ require_lab() {
 stack_name() {
   printf 'SapC03Lab%s' "$1"
 }
+
+# The Resource Groups Tagging API can list a deleted resource for minutes.
+# Trust the service API before declaring an ARN an orphan. Unknown services
+# are treated as existing so the teardown stays conservative.
+tagged_resource_exists() {
+  local arn="$1"
+  case "$arn" in
+    arn:aws:cognito-idp:*:userpool/*)
+      aws cognito-idp describe-user-pool --user-pool-id "${arn##*/}" \
+        >/dev/null 2>&1
+      ;;
+    arn:aws:lambda:*:function:*)
+      aws lambda get-function --function-name "${arn#*:function:}" \
+        >/dev/null 2>&1
+      ;;
+    arn:aws:dynamodb:*:table/*)
+      aws dynamodb describe-table --table-name "${arn##*/}" >/dev/null 2>&1
+      ;;
+    arn:aws:logs:*:log-group:*)
+      aws logs list-tags-log-group --log-group-name "${arn#*:log-group:}" \
+        >/dev/null 2>&1
+      ;;
+    arn:aws:apigateway:*::/apis/*)
+      local api_id="${arn#*/apis/}"
+      aws apigatewayv2 get-api --api-id "${api_id%%/*}" >/dev/null 2>&1
+      ;;
+    arn:aws:cloudformation:*:stack/*)
+      local cfn_stack="${arn#*:stack/}"
+      aws cloudformation describe-stacks \
+        --stack-name "${cfn_stack%%/*}" >/dev/null 2>&1
+      ;;
+    arn:aws:s3:::*)
+      aws s3api head-bucket --bucket "${arn#arn:aws:s3:::}" >/dev/null 2>&1
+      ;;
+    arn:aws:sns:*:*:*)
+      aws sns get-topic-attributes --topic-arn "$arn" >/dev/null 2>&1
+      ;;
+    arn:aws:kms:*:*:key/*)
+      aws kms describe-key --key-id "${arn##*/}" >/dev/null 2>&1
+      ;;
+    *)
+      return 0
+      ;;
+  esac
+}
+
+filter_existing_tagged_resources() {
+  local arn
+  while IFS= read -r arn; do
+    [[ -n "$arn" ]] || continue
+    if tagged_resource_exists "$arn"; then
+      printf '%s\n' "$arn"
+    else
+      printf 'stale tag entry: %s\n' "$arn" >&2
+    fi
+  done
+}

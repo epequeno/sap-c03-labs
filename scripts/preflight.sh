@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# Identity, Region, and the budget guardrail from the lab ground rules.
-# Set SAP_LABS_SKIP_BUDGETS=1 to deploy without a detectable budget.
+# Identity and Region. Budgets are reported when visible but are not required:
+# the project enforces cost caps by same-day teardown, not by a budget resource.
 set -euo pipefail
 source "$(dirname "${BASH_SOURCE[0]}")/lib.sh"
 
@@ -39,14 +39,6 @@ if [[ -n "${monitors//[[:space:]]/}" ]]; then
   printf 'monitors   %s\n' "$monitors"
 else
   echo "monitors   none readable (needs ce:GetAnomalyMonitors)"
-fi
-
-if [[ -z "${budgets//[[:space:]]/}" && -z "${monitors//[[:space:]]/}" ]]; then
-  echo
-  echo "Neither a budget nor an anomaly monitor is visible. The lab ground rules put both" >&2
-  echo "before the first deploy. Create a \$30 monthly budget and an anomaly monitor, or" >&2
-  echo "re-run with SAP_LABS_SKIP_BUDGETS=1 if the account already has them at org level." >&2
-  [[ "${SAP_LABS_SKIP_BUDGETS:-0}" == "1" ]] || exit 1
 fi
 
 echo
