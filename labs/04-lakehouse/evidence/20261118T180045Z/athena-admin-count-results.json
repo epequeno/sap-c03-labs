@@ -1,0 +1,77 @@
+{
+  "UpdateCount": 0,
+  "ResultSet": {
+    "Rows": [
+      {
+        "Data": [
+          {
+            "VarCharValue": "category"
+          },
+          {
+            "VarCharValue": "events"
+          }
+        ]
+      },
+      {
+        "Data": [
+          {
+            "VarCharValue": "books"
+          },
+          {
+            "VarCharValue": "3"
+          }
+        ]
+      },
+      {
+        "Data": [
+          {
+            "VarCharValue": "music"
+          },
+          {
+            "VarCharValue": "3"
+          }
+        ]
+      }
+    ],
+    "ResultSetMetadata": {
+      "ColumnInfo": [
+        {
+          "CatalogName": "hive",
+          "SchemaName": "",
+          "TableName": "",
+          "Name": "category",
+          "Label": "category",
+          "Type": "varchar",
+          "Precision": 2147483647,
+          "Scale": 0,
+          "Nullable": "UNKNOWN",
+          "CaseSensitive": true
+        },
+        {
+          "CatalogName": "hive",
+          "SchemaName": "",
+          "TableName": "",
+          "Name": "events",
+          "Label": "events",
+          "Type": "bigint",
+          "Precision": 19,
+          "Scale": 0,
+          "Nullable": "UNKNOWN",
+          "CaseSensitive": false
+        }
+      ]
+    }
+  },
+  "ResponseMetadata": {
+    "RequestId": "0be8ba6e-e6a3-4140-be3c-260e9ccbc164",
+    "HTTPStatusCode": 200,
+    "HTTPHeaders": {
+      "date": "Wed, 18 Nov 2026 18:01:12 GMT",
+      "content-type": "application/x-amz-json-1.1",
+      "content-length": "1072",
+      "connection": "keep-alive",
+      "x-amzn-requestid": "0be8ba6e-e6a3-4140-be3c-260e9ccbc164"
+    },
+    "RetryAttempts": 0
+  }
+}

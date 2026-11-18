@@ -1,0 +1,20 @@
+{
+  "ResultSet": {
+    "Rows": [],
+    "ResultSetMetadata": {
+      "ColumnInfo": []
+    }
+  },
+  "ResponseMetadata": {
+    "RequestId": "1b3b0e0d-40ea-4d40-aeae-732cf897148d",
+    "HTTPStatusCode": 200,
+    "HTTPHeaders": {
+      "date": "Wed, 18 Nov 2026 18:01:05 GMT",
+      "content-type": "application/x-amz-json-1.1",
+      "content-length": "108",
+      "connection": "keep-alive",
+      "x-amzn-requestid": "1b3b0e0d-40ea-4d40-aeae-732cf897148d"
+    },
+    "RetryAttempts": 0
+  }
+}

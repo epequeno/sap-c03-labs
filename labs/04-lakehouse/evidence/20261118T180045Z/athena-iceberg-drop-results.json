@@ -1,0 +1,35 @@
+{
+  "ResultSet": {
+    "Rows": [
+      {
+        "Data": [
+          {
+            "VarCharValue": ""
+          }
+        ]
+      },
+      {
+        "Data": [
+          {
+            "VarCharValue": ""
+          }
+        ]
+      }
+    ],
+    "ResultSetMetadata": {
+      "ColumnInfo": []
+    }
+  },
+  "ResponseMetadata": {
+    "RequestId": "8d67e853-045c-4ba4-b0c1-c67963cf64f5",
+    "HTTPStatusCode": 200,
+    "HTTPHeaders": {
+      "date": "Wed, 18 Nov 2026 18:01:02 GMT",
+      "content-type": "application/x-amz-json-1.1",
+      "content-length": "198",
+      "connection": "keep-alive",
+      "x-amzn-requestid": "8d67e853-045c-4ba4-b0c1-c67963cf64f5"
+    },
+    "RetryAttempts": 0
+  }
+}

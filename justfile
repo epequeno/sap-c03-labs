@@ -31,16 +31,23 @@ cfn-lint:
 quality: verify cfn-lint
 
 nag lab="02":
-    @source ./scripts/lib.sh && cd infra && \
+    @source ./scripts/lib.sh && export AWS_PROFILE="$SAP_LABS_PRIMARY_PROFILE" && cd infra && \
       out="$(uv run cdk synth -c lab="{{lab}}" -c nag=1 --quiet 2>&1)"; \
       rc=$?; printf '%s\n' "$out"; \
       if [ $rc -ne 0 ]; then echo "cdk-nag findings are advisory (non-blocking)"; fi
 
 synth lab="02":
-    @source ./scripts/lib.sh && cd infra && uv run cdk synth -c lab="{{lab}}" --quiet
+    @source ./scripts/lib.sh && export AWS_PROFILE="$SAP_LABS_PRIMARY_PROFILE" && cd infra && \
+      uv run cdk synth -c lab="{{lab}}" --quiet
 
 deploy lab="02":
     @./scripts/deploy.sh {{lab}}
+
+member-deploy lab="04":
+    @./scripts/lab04_member.sh {{lab}} deploy
+
+member-destroy lab="04":
+    @./scripts/lab04_member.sh {{lab}} destroy
 
 evidence lab="02":
     @./scripts/evidence.sh {{lab}}

@@ -1,0 +1,49 @@
+{
+  "queryExecutionId": "30b5830e-a4c7-422e-b04b-c71557450d44",
+  "execution": {
+    "QueryExecutionId": "30b5830e-a4c7-422e-b04b-c71557450d44",
+    "Query": "SELECT secret_note FROM lab04_lakehouse.events LIMIT 1",
+    "StatementType": "DML",
+    "ResultConfiguration": {
+      "OutputLocation": "s3://sapc03lab04-athenaresultsbucket879938fa-zni9v67ynlm4/30b5830e-a4c7-422e-b04b-c71557450d44.csv"
+    },
+    "ResultReuseConfiguration": {
+      "ResultReuseByAgeConfiguration": {
+        "Enabled": false
+      }
+    },
+    "QueryExecutionContext": {
+      "Database": "lab04_lakehouse"
+    },
+    "Status": {
+      "State": "FAILED",
+      "StateChangeReason": "COLUMN_NOT_FOUND: Column 'secret_note' cannot be resolved or requester is not authorized to access requested resources",
+      "SubmissionDateTime": "2026-11-18T12:01:15.340000-06:00",
+      "CompletionDateTime": "2026-11-18T12:01:15.907000-06:00",
+      "AthenaError": {
+        "ErrorCategory": 2,
+        "ErrorType": 1500,
+        "Retryable": false,
+        "ErrorMessage": "Column 'secret_note' cannot be resolved or requester is not authorized to access requested resources"
+      }
+    },
+    "Statistics": {
+      "EngineExecutionTimeInMillis": 182,
+      "DataScannedInBytes": 0,
+      "TotalExecutionTimeInMillis": 567,
+      "QueryQueueTimeInMillis": 155,
+      "ServicePreProcessingTimeInMillis": 85,
+      "ServiceProcessingTimeInMillis": 145,
+      "ResultReuseInformation": {
+        "ReusedPreviousResult": false
+      }
+    },
+    "WorkGroup": "lab04-lakehouse",
+    "EngineVersion": {
+      "SelectedEngineVersion": "Athena engine version 3",
+      "EffectiveEngineVersion": "Athena engine version 3"
+    },
+    "SubstatementType": "SELECT"
+  },
+  "sql": "SELECT secret_note FROM lab04_lakehouse.events LIMIT 1"
+}

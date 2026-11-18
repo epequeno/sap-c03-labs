@@ -1,0 +1,42 @@
+{
+  "queryExecutionId": "a108c479-975a-42fc-9f23-bf1ec5d00b95",
+  "execution": {
+    "QueryExecutionId": "a108c479-975a-42fc-9f23-bf1ec5d00b95",
+    "Query": "DROP TABLE IF EXISTS lab04_lakehouse.events_iceberg",
+    "StatementType": "DDL",
+    "ResultConfiguration": {
+      "OutputLocation": "s3://sapc03lab04-athenaresultsbucket879938fa-zni9v67ynlm4/a108c479-975a-42fc-9f23-bf1ec5d00b95.txt"
+    },
+    "ResultReuseConfiguration": {
+      "ResultReuseByAgeConfiguration": {
+        "Enabled": false
+      }
+    },
+    "QueryExecutionContext": {
+      "Database": "lab04_lakehouse"
+    },
+    "Status": {
+      "State": "SUCCEEDED",
+      "SubmissionDateTime": "2026-11-18T12:00:58.155000-06:00",
+      "CompletionDateTime": "2026-11-18T12:01:00.776000-06:00"
+    },
+    "Statistics": {
+      "EngineExecutionTimeInMillis": 2253,
+      "DataScannedInBytes": 0,
+      "TotalExecutionTimeInMillis": 2621,
+      "QueryQueueTimeInMillis": 301,
+      "ServicePreProcessingTimeInMillis": 54,
+      "ServiceProcessingTimeInMillis": 13,
+      "ResultReuseInformation": {
+        "ReusedPreviousResult": false
+      }
+    },
+    "WorkGroup": "lab04-lakehouse",
+    "EngineVersion": {
+      "SelectedEngineVersion": "Athena engine version 3",
+      "EffectiveEngineVersion": "Athena engine version 3"
+    },
+    "SubstatementType": "DROP_TABLE"
+  },
+  "sql": "DROP TABLE IF EXISTS lab04_lakehouse.events_iceberg"
+}

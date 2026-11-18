@@ -1,0 +1,39 @@
+{
+  "id": "6278f6b7-c1cb-460c-b11e-814d463a6fcc",
+  "membershipId": "f864f8d1-9272-4a90-96fe-e6c23ccba88c",
+  "membershipArn": "<caller-arn>",
+  "createTime": "2026-11-18T12:02:10-06:00",
+  "sqlParameters": {
+    "queryString": "SELECT secret_note FROM events LIMIT 1"
+  },
+  "status": "FAILED",
+  "resultConfiguration": {
+    "outputConfiguration": {
+      "member": {
+        "accountId": "<account-id>"
+      }
+    }
+  },
+  "statistics": {
+    "totalDurationInMillis": 0
+  },
+  "error": {
+    "message": "Query is invalid. From line 1, column 8 to line 1, column 19: Column 'secret_note' not found in any table.",
+    "code": "MALFORMED_QUERY",
+    "retry": {
+      "retryable": false
+    }
+  },
+  "computeConfiguration": {
+    "worker": {
+      "type": "CR.1X",
+      "number": 16,
+      "properties": {
+        "spark": {
+          "spark.cleanrooms.athena.optimizationsEnabled": "true"
+        }
+      }
+    }
+  },
+  "queryComputePayerAccountId": "<account-id>"
+}

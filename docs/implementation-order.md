@@ -20,6 +20,8 @@ Running every lab at its cap totals $28 against the $30 budget. Keep each lab in
 
 Lab 03 gate result (2026-11-18): `organizations:DescribeOrganization` succeeds, but `organizations:ListRoots` and `organizations:ListPolicies` return `AccessDeniedException`. The project profile is a member account; Lab 03 is artifact-only and no stack is registered.
 
+Lab 04 gate result (2026-11-18): the `epdev` sandbox account is available as the second account. Clean Rooms rejects a Glue table that Lake Formation manages, so the lab uses `events` for the Lake Formation/Athena path and a separate `events_cleanrooms` table for the Clean Rooms path. Deployed, evidenced, and destroyed.
+
 ## Gates before scheduling
 
 Run these read-only checks before writing a stack:

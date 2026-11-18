@@ -8,6 +8,10 @@ export AWS_PROFILE="${AWS_PROFILE:-arch}"
 export AWS_REGION="${AWS_REGION:-us-east-1}"
 export AWS_DEFAULT_REGION="${AWS_DEFAULT_REGION:-$AWS_REGION}"
 export CDK_DEFAULT_REGION="${CDK_DEFAULT_REGION:-$AWS_REGION}"
+# The primary and secondary profiles are explicit so a leaked AWS_PROFILE
+# cannot deploy the primary stack into the collaborator account.
+export SAP_LABS_PRIMARY_PROFILE="${SAP_LABS_PRIMARY_PROFILE:-arch}"
+export SAP_LABS_SECONDARY_PROFILE="${SAP_LABS_SECONDARY_PROFILE:-epdev}"
 
 declare -A LAB_SLUGS=(
   ["01"]="01-agentic-rag"

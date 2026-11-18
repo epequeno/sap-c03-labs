@@ -1,0 +1,2 @@
+committed_at,snapshot_id,parent_id,operation,manifest_list,summary
+2026-11-18 18:01:06.855 UTC,8429041329981100247,,append,s3://sapc03lab04-curatedbucket6a59c97e-3divuo81ziun/iceberg/metadata/snap-8429041329981100247-1-69e000e3-5c4a-4bb1-b84f-db7f97353502.avro,"{changed-partition-count=1, added-data-files=1, total-equality-deletes=0, added-records=6, trino_query_id=20261118_180105_00232_eidqe, total-position-deletes=0, added-files-size=974, total-delete-files=0, total-files-size=974, total-records=6, total-data-files=1}"

@@ -1,0 +1,42 @@
+{
+  "queryExecutionId": "885826cd-eefc-4ee8-83d5-a0f923be866f",
+  "execution": {
+    "QueryExecutionId": "885826cd-eefc-4ee8-83d5-a0f923be866f",
+    "Query": "CREATE TABLE lab04_lakehouse.events_iceberg (\n          event_id bigint,\n          user_id string,\n          category string,\n          amount double,\n          secret_note string\n        )\n        LOCATION 's3://sapc03lab04-curatedbucket6a59c97e-3divuo81ziun/iceberg/'\n        TBLPROPERTIES ('table_type'='ICEBERG')",
+    "StatementType": "DDL",
+    "ResultConfiguration": {
+      "OutputLocation": "s3://sapc03lab04-athenaresultsbucket879938fa-zni9v67ynlm4/885826cd-eefc-4ee8-83d5-a0f923be866f.txt"
+    },
+    "ResultReuseConfiguration": {
+      "ResultReuseByAgeConfiguration": {
+        "Enabled": false
+      }
+    },
+    "QueryExecutionContext": {
+      "Database": "lab04_lakehouse"
+    },
+    "Status": {
+      "State": "SUCCEEDED",
+      "SubmissionDateTime": "2026-11-18T12:01:02.911000-06:00",
+      "CompletionDateTime": "2026-11-18T12:01:03.437000-06:00"
+    },
+    "Statistics": {
+      "EngineExecutionTimeInMillis": 407,
+      "DataScannedInBytes": 0,
+      "TotalExecutionTimeInMillis": 526,
+      "QueryQueueTimeInMillis": 81,
+      "ServicePreProcessingTimeInMillis": 16,
+      "ServiceProcessingTimeInMillis": 22,
+      "ResultReuseInformation": {
+        "ReusedPreviousResult": false
+      }
+    },
+    "WorkGroup": "lab04-lakehouse",
+    "EngineVersion": {
+      "SelectedEngineVersion": "Athena engine version 3",
+      "EffectiveEngineVersion": "Athena engine version 3"
+    },
+    "SubstatementType": "CREATE_TABLE"
+  },
+  "sql": "\n        CREATE TABLE lab04_lakehouse.events_iceberg (\n          event_id bigint,\n          user_id string,\n          category string,\n          amount double,\n          secret_note string\n        )\n        LOCATION 's3://sapc03lab04-curatedbucket6a59c97e-3divuo81ziun/iceberg/'\n        TBLPROPERTIES ('table_type'='ICEBERG')\n        "
+}

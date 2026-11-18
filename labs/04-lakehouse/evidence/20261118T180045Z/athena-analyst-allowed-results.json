@@ -1,0 +1,98 @@
+{
+  "UpdateCount": 0,
+  "ResultSet": {
+    "Rows": [
+      {
+        "Data": [
+          {
+            "VarCharValue": "category"
+          },
+          {
+            "VarCharValue": "events"
+          },
+          {
+            "VarCharValue": "total"
+          }
+        ]
+      },
+      {
+        "Data": [
+          {
+            "VarCharValue": "books"
+          },
+          {
+            "VarCharValue": "3"
+          },
+          {
+            "VarCharValue": "35.0"
+          }
+        ]
+      },
+      {
+        "Data": [
+          {
+            "VarCharValue": "music"
+          },
+          {
+            "VarCharValue": "3"
+          },
+          {
+            "VarCharValue": "85.0"
+          }
+        ]
+      }
+    ],
+    "ResultSetMetadata": {
+      "ColumnInfo": [
+        {
+          "CatalogName": "hive",
+          "SchemaName": "",
+          "TableName": "",
+          "Name": "category",
+          "Label": "category",
+          "Type": "varchar",
+          "Precision": 2147483647,
+          "Scale": 0,
+          "Nullable": "UNKNOWN",
+          "CaseSensitive": true
+        },
+        {
+          "CatalogName": "hive",
+          "SchemaName": "",
+          "TableName": "",
+          "Name": "events",
+          "Label": "events",
+          "Type": "bigint",
+          "Precision": 19,
+          "Scale": 0,
+          "Nullable": "UNKNOWN",
+          "CaseSensitive": false
+        },
+        {
+          "CatalogName": "hive",
+          "SchemaName": "",
+          "TableName": "",
+          "Name": "total",
+          "Label": "total",
+          "Type": "double",
+          "Precision": 17,
+          "Scale": 0,
+          "Nullable": "UNKNOWN",
+          "CaseSensitive": false
+        }
+      ]
+    }
+  },
+  "ResponseMetadata": {
+    "RequestId": "6dff2e45-1ed4-446e-926e-aa15c80e74b9",
+    "HTTPStatusCode": 200,
+    "HTTPHeaders": {
+      "date": "Wed, 18 Nov 2026 18:01:15 GMT",
+      "content-type": "application/x-amz-json-1.1",
+      "content-length": "1505",
+      "connection": "keep-alive",
+      "x-amzn-requestid": "6dff2e45-1ed4-446e-926e-aa15c80e74b9"
+    },
+    "RetryAttempts": 0
+  }
+}

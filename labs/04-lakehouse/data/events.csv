@@ -1,0 +1,7 @@
+event_id,user_id,category,amount,secret_note
+1,user-1,books,10,alpha
+2,user-2,books,20,beta
+3,user-1,music,30,gamma
+4,user-3,music,40,delta
+5,user-2,books,5,epsilon
+6,user-4,music,15,zeta

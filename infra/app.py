@@ -17,6 +17,8 @@ from datetime import date, timedelta
 
 import aws_cdk as cdk
 from stacks.lab02_multitenant_api import Lab02MultitenantApi
+from stacks.lab04_lakehouse import Lab04Lakehouse
+from stacks.lab04_member import Lab04Member
 
 PROJECT = "sap-c03-labs"
 OWNER = os.environ.get("SAP_LABS_OWNER", "steven")
@@ -25,6 +27,11 @@ DEFAULT_REGION = os.environ.get("CDK_DEFAULT_REGION", "us-east-1")
 # Registered labs. Add the import and the entry together.
 STACKS: dict[str, type[cdk.Stack]] = {
     "02": Lab02MultitenantApi,
+    "04": Lab04Lakehouse,
+}
+# Auxiliary stacks deployed to the second account with `-c member=1`.
+MEMBER_STACKS: dict[str, type[cdk.Stack]] = {
+    "04": Lab04Member,
 }
 
 
@@ -32,10 +39,13 @@ def main() -> None:
     app = cdk.App()
 
     lab = str(app.node.try_get_context("lab") or "02")
-    if lab not in STACKS:
-        available = ", ".join(sorted(STACKS))
+    member = bool(app.node.try_get_context("member"))
+    registry = MEMBER_STACKS if member else STACKS
+    if lab not in registry:
+        available = ", ".join(sorted(registry))
+        kind = "member stack" if member else "stack"
         print(
-            f"lab={lab!r} has no stack yet. Registered: {available}. "
+            f"lab={lab!r} has no {kind} yet. Registered: {available}. "
             f"Write infra/stacks/lab{lab}_*.py and register it in infra/app.py.",
             file=sys.stderr,
         )
@@ -45,9 +55,10 @@ def main() -> None:
         date.today() + timedelta(days=1)
     )
 
-    stack = STACKS[lab](
+    stack_id = f"SapC03Lab{lab}Member" if member else f"SapC03Lab{lab}"
+    stack = registry[lab](
         app,
-        f"SapC03Lab{lab}",
+        stack_id,
         env=cdk.Environment(
             account=os.environ.get("CDK_DEFAULT_ACCOUNT"),
             region=os.environ.get("CDK_DEFAULT_REGION", DEFAULT_REGION),

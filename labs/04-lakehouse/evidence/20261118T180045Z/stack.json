@@ -1,0 +1,49 @@
+{
+  "Status": "UPDATE_COMPLETE",
+  "Outputs": [
+    {
+      "OutputKey": "RawBucketName",
+      "OutputValue": "sapc03lab04-rawbucket0c3ee094-hnewfo4slavq"
+    },
+    {
+      "OutputKey": "TableName",
+      "OutputValue": "events"
+    },
+    {
+      "OutputKey": "CleanRoomsTableName",
+      "OutputValue": "events_cleanrooms"
+    },
+    {
+      "OutputKey": "CuratedBucketName",
+      "OutputValue": "sapc03lab04-curatedbucket6a59c97e-3divuo81ziun"
+    },
+    {
+      "OutputKey": "DatabaseName",
+      "OutputValue": "lab04_lakehouse"
+    },
+    {
+      "OutputKey": "DataLocation",
+      "OutputValue": "s3://sapc03lab04-curatedbucket6a59c97e-3divuo81ziun/events/"
+    },
+    {
+      "OutputKey": "VisibleColumns",
+      "OutputValue": "event_id,user_id,category,amount"
+    },
+    {
+      "OutputKey": "CleanRoomsRoleArn",
+      "OutputValue": "<caller-arn>"
+    },
+    {
+      "OutputKey": "WorkGroupName",
+      "OutputValue": "lab04-lakehouse"
+    },
+    {
+      "OutputKey": "AnalystRoleArn",
+      "OutputValue": "<caller-arn>"
+    },
+    {
+      "OutputKey": "AthenaResultsBucketName",
+      "OutputValue": "sapc03lab04-athenaresultsbucket879938fa-zni9v67ynlm4"
+    }
+  ]
+}

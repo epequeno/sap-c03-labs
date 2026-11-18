@@ -1,0 +1,43 @@
+{
+  "queryExecutionId": "aceeb6b4-c02a-4d26-ab71-3f3f3fcc4768",
+  "execution": {
+    "QueryExecutionId": "aceeb6b4-c02a-4d26-ab71-3f3f3fcc4768",
+    "Query": "SELECT * FROM \"lab04_lakehouse\".\"events_iceberg$snapshots\"",
+    "StatementType": "DML",
+    "ResultConfiguration": {
+      "OutputLocation": "s3://sapc03lab04-athenaresultsbucket879938fa-zni9v67ynlm4/aceeb6b4-c02a-4d26-ab71-3f3f3fcc4768.csv"
+    },
+    "ResultReuseConfiguration": {
+      "ResultReuseByAgeConfiguration": {
+        "Enabled": false
+      }
+    },
+    "QueryExecutionContext": {
+      "Database": "lab04_lakehouse"
+    },
+    "Status": {
+      "State": "SUCCEEDED",
+      "SubmissionDateTime": "2026-11-18T12:01:07.714000-06:00",
+      "CompletionDateTime": "2026-11-18T12:01:08.810000-06:00"
+    },
+    "Statistics": {
+      "EngineExecutionTimeInMillis": 941,
+      "DataScannedInBytes": 613,
+      "TotalExecutionTimeInMillis": 1096,
+      "QueryQueueTimeInMillis": 88,
+      "ServicePreProcessingTimeInMillis": 43,
+      "QueryPlanningTimeInMillis": 6,
+      "ServiceProcessingTimeInMillis": 24,
+      "ResultReuseInformation": {
+        "ReusedPreviousResult": false
+      }
+    },
+    "WorkGroup": "lab04-lakehouse",
+    "EngineVersion": {
+      "SelectedEngineVersion": "Athena engine version 3",
+      "EffectiveEngineVersion": "Athena engine version 3"
+    },
+    "SubstatementType": "SELECT"
+  },
+  "sql": "SELECT * FROM \"lab04_lakehouse\".\"events_iceberg$snapshots\""
+}

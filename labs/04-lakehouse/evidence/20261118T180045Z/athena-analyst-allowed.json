@@ -1,0 +1,43 @@
+{
+  "queryExecutionId": "02093780-9027-4a04-b66f-cd5d6b018f5e",
+  "execution": {
+    "QueryExecutionId": "02093780-9027-4a04-b66f-cd5d6b018f5e",
+    "Query": "SELECT category, COUNT(DISTINCT event_id) AS events, SUM(amount) AS total FROM lab04_lakehouse.events GROUP BY category ORDER BY category",
+    "StatementType": "DML",
+    "ResultConfiguration": {
+      "OutputLocation": "s3://sapc03lab04-athenaresultsbucket879938fa-zni9v67ynlm4/02093780-9027-4a04-b66f-cd5d6b018f5e.csv"
+    },
+    "ResultReuseConfiguration": {
+      "ResultReuseByAgeConfiguration": {
+        "Enabled": false
+      }
+    },
+    "QueryExecutionContext": {
+      "Database": "lab04_lakehouse"
+    },
+    "Status": {
+      "State": "SUCCEEDED",
+      "SubmissionDateTime": "2026-11-18T12:01:12.916000-06:00",
+      "CompletionDateTime": "2026-11-18T12:01:13.963000-06:00"
+    },
+    "Statistics": {
+      "EngineExecutionTimeInMillis": 844,
+      "DataScannedInBytes": 188,
+      "TotalExecutionTimeInMillis": 1047,
+      "QueryQueueTimeInMillis": 75,
+      "ServicePreProcessingTimeInMillis": 96,
+      "QueryPlanningTimeInMillis": 396,
+      "ServiceProcessingTimeInMillis": 32,
+      "ResultReuseInformation": {
+        "ReusedPreviousResult": false
+      }
+    },
+    "WorkGroup": "lab04-lakehouse",
+    "EngineVersion": {
+      "SelectedEngineVersion": "Athena engine version 3",
+      "EffectiveEngineVersion": "Athena engine version 3"
+    },
+    "SubstatementType": "SELECT"
+  },
+  "sql": "SELECT category, COUNT(DISTINCT event_id) AS events, SUM(amount) AS total FROM lab04_lakehouse.events GROUP BY category ORDER BY category"
+}

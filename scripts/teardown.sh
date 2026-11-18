@@ -9,6 +9,13 @@ root="$(repo_root)"
 slug="${LAB_SLUGS[$lab]}"
 stack="$(stack_name "$lab")"
 cd "$root"
+export AWS_PROFILE="$SAP_LABS_PRIMARY_PROFILE"
+
+hook="$root/scripts/teardown.d/lab${lab}.sh"
+if [[ -x "$hook" ]]; then
+  echo "== lab-specific teardown"
+  "$hook" "$lab"
+fi
 
 echo "== destroy $stack"
 destroy_note="stack already absent"

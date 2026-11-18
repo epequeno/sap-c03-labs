@@ -1,0 +1,41 @@
+{
+  "id": "2cb1392b-5bec-4a59-b085-b24d2aa2a713",
+  "membershipId": "f864f8d1-9272-4a90-96fe-e6c23ccba88c",
+  "membershipArn": "<caller-arn>",
+  "createTime": "2026-11-18T12:01:20-06:00",
+  "sqlParameters": {
+    "queryString": "SELECT category, COUNT(DISTINCT event_id) AS events, SUM(amount) AS total FROM events GROUP BY category ORDER BY category"
+  },
+  "status": "SUCCESS",
+  "resultConfiguration": {
+    "outputConfiguration": {
+      "member": {
+        "accountId": "<account-id>"
+      }
+    }
+  },
+  "statistics": {
+    "totalDurationInMillis": 9970
+  },
+  "result": {
+    "output": {
+      "memberList": [
+        {
+          "accountId": "<account-id>"
+        }
+      ]
+    }
+  },
+  "computeConfiguration": {
+    "worker": {
+      "type": "CR.1X",
+      "number": 16,
+      "properties": {
+        "spark": {
+          "spark.cleanrooms.athena.optimizationsEnabled": "true"
+        }
+      }
+    }
+  },
+  "queryComputePayerAccountId": "<account-id>"
+}

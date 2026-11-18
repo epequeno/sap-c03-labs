@@ -1,0 +1,45 @@
+{
+  "collaboration": {
+    "id": "82910dfe-d1b2-46da-abf0-4d17f669b693",
+    "name": "lab04-lakehouse",
+    "creatorAccountId": "<account-id>",
+    "memberAccountId": "<account-id>",
+    "status": "ACTIVE"
+  },
+  "archMembership": {
+    "id": "f864f8d1-9272-4a90-96fe-e6c23ccba88c",
+    "status": "ACTIVE"
+  },
+  "memberMembership": {
+    "id": "9156d5e7-9206-42d4-80ec-7a957d242038",
+    "status": "ACTIVE"
+  },
+  "configuredTable": {
+    "id": "23a0ca86-e2da-4263-87c2-4b7e300c85a3",
+    "name": "lab04-events",
+    "allowedColumns": [
+      "event_id",
+      "user_id",
+      "category",
+      "amount"
+    ],
+    "analysisMethod": "DIRECT_QUERY"
+  },
+  "association": {
+    "id": "23a0ca86-e2da-4263-87c2-4b7e300c85a3",
+    "name": "events",
+    "configuredTableId": "23a0ca86-e2da-4263-87c2-4b7e300c85a3"
+  },
+  "allowedQuery": {
+    "sql": "SELECT category, COUNT(DISTINCT event_id) AS events, SUM(amount) AS total FROM events GROUP BY category ORDER BY category",
+    "status": "SUCCESS",
+    "resultLocation": {
+      "bucket": "sapc03lab04member-resultsbucketa95a2103-daoch9jgp1ip",
+      "key": "lab04/collaboration=82910dfe-d1b2-46da-abf0-4d17f669b693/2cb1392b-5bec-4a59-b085-b24d2aa2a713/part-00000-701c7345-d02c-45ce-8e37-9229c5cc1469-c000.csv"
+    }
+  },
+  "deniedQuery": {
+    "sql": "SELECT secret_note FROM events LIMIT 1",
+    "captured": true
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "ResponseMetadata": {
+    "RequestId": "57f2ac66-fd44-41b8-9973-67b3e2a567a8",
+    "HTTPStatusCode": 200,
+    "HTTPHeaders": {
+      "date": "Wed, 18 Nov 2026 18:00:57 GMT",
+      "content-type": "application/json",
+      "content-length": "5002",
+      "connection": "keep-alive",
+      "x-amzn-requestid": "57f2ac66-fd44-41b8-9973-67b3e2a567a8",
+      "cache-control": "no-cache"
+    },
+    "RetryAttempts": 0
+  },
+  "PrincipalResourcePermissions": [
+    {
+      "Principal": {
+        "DataLakePrincipalIdentifier": "<caller-arn>"
+      },
+      "Resource": {
+        "Table": {
+          "CatalogId": "<account-id>",
+          "DatabaseName": "lab04_lakehouse",
+          "Name": "events"
+        }
+      },
+      "Permissions": [
+        "ALL"
+      ],
+      "PermissionsWithGrantOption": [],
+      "LastUpdated": "2026-11-18T12:00:56.531000-06:00",
+      "LastUpdatedBy": "<caller-arn>"
+    },
+    {
+      "Principal": {
+        "DataLakePrincipalIdentifier": "<caller-arn>"
+      },
+      "Resource": {
+        "Table": {
+          "CatalogId": "<account-id>",
+          "DatabaseName": "lab04_lakehouse",
+          "Name": "events"
+        }
+      },
+      "Permissions": [
+        "ALL"
+      ],
+      "PermissionsWithGrantOption": [],
+      "LastUpdated": "2026-11-18T12:00:57.056000-06:00",
+      "LastUpdatedBy": "<caller-arn>"
+    },
+    {
+      "Principal": {
+        "DataLakePrincipalIdentifier": "<caller-arn>"
+      },
+      "Resource": {
+        "TableWithColumns": {
+          "CatalogId": "<account-id>",
+          "DatabaseName": "lab04_lakehouse",
+          "Name": "events",
+          "ColumnNames": [
+            "amount",
+            "category",
+            "event_id",
+            "user_id"
+          ]
+        }
+      },
+      "Permissions": [
+        "SELECT"
+      ],
+      "PermissionsWithGrantOption": [],
+      "LastUpdated": "2026-11-18T12:00:57.602000-06:00",
+      "LastUpdatedBy": "<caller-arn>"
+    },
+    {
+      "Principal": {
+        "DataLakePrincipalIdentifier": "<caller-arn>"
+      },
+      "Resource": {
+        "Table": {
+          "CatalogId": "<account-id>",
+          "DatabaseName": "lab04_lakehouse",
+          "Name": "events"
+        }
+      },
+      "Permissions": [
+        "ALL",
+        "ALTER",
+        "DELETE",
+        "DESCRIBE",
+        "DROP",
+        "INSERT"
+      ],
+      "PermissionsWithGrantOption": [
+        "ALL",
+        "ALTER",
+        "DELETE",
+        "DESCRIBE",
+        "DROP",
+        "INSERT"
+      ],
+      "LastUpdated": "2026-11-18T11:31:40.200000-06:00",
+      "LastUpdatedBy": "<caller-arn>"
+    },
+    {
+      "Principal": {
+        "DataLakePrincipalIdentifier": "<caller-arn>"
+      },
+      "Resource": {
+        "TableWithColumns": {
+          "CatalogId": "<account-id>",
+          "DatabaseName": "lab04_lakehouse",
+          "Name": "events",
+          "ColumnWildcard": {}
+        }
+      },
+      "Permissions": [
+        "SELECT"
+      ],
+      "PermissionsWithGrantOption": [
+        "SELECT"
+      ],
+      "LastUpdated": "2026-11-18T11:31:40.200000-06:00",
+      "LastUpdatedBy": "<caller-arn>"
+    },
+    {
+      "Principal": {
+        "DataLakePrincipalIdentifier": "<caller-arn>"
+      },
+      "Resource": {
+        "TableWithColumns": {
+          "CatalogId": "<account-id>",
+          "DatabaseName": "lab04_lakehouse",
+          "Name": "events",
+          "ColumnNames": [
+            "amount",
+            "category",
+            "event_id",
+            "user_id"
+          ]
+        }
+      },
+      "Permissions": [
+        "SELECT"
+      ],
+      "PermissionsWithGrantOption": [],
+      "LastUpdated": "2026-11-18T11:38:25.390000-06:00",
+      "LastUpdatedBy": "<caller-arn>"
+    }
+  ]
+}

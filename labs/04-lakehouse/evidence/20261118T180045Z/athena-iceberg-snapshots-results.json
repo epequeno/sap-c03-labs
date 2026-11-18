@@ -1,0 +1,137 @@
+{
+  "UpdateCount": 0,
+  "ResultSet": {
+    "Rows": [
+      {
+        "Data": [
+          {
+            "VarCharValue": "committed_at"
+          },
+          {
+            "VarCharValue": "snapshot_id"
+          },
+          {
+            "VarCharValue": "parent_id"
+          },
+          {
+            "VarCharValue": "operation"
+          },
+          {
+            "VarCharValue": "manifest_list"
+          },
+          {
+            "VarCharValue": "summary"
+          }
+        ]
+      },
+      {
+        "Data": [
+          {
+            "VarCharValue": "2026-11-18 18:01:06.855 UTC"
+          },
+          {
+            "VarCharValue": "8429041329981100247"
+          },
+          {},
+          {
+            "VarCharValue": "append"
+          },
+          {
+            "VarCharValue": "s3://sapc03lab04-curatedbucket6a59c97e-3divuo81ziun/iceberg/metadata/snap-8429041329981100247-1-69e000e3-5c4a-4bb1-b84f-db7f97353502.avro"
+          },
+          {
+            "VarCharValue": "{changed-partition-count=1, added-data-files=1, total-equality-deletes=0, added-records=6, trino_query_id=20261118_180105_00232_eidqe, total-position-deletes=0, added-files-size=974, total-delete-files=0, total-files-size=974, total-records=6, total-data-files=1}"
+          }
+        ]
+      }
+    ],
+    "ResultSetMetadata": {
+      "ColumnInfo": [
+        {
+          "CatalogName": "hive",
+          "SchemaName": "",
+          "TableName": "",
+          "Name": "committed_at",
+          "Label": "committed_at",
+          "Type": "timestamp with time zone",
+          "Precision": 3,
+          "Scale": 0,
+          "Nullable": "UNKNOWN",
+          "CaseSensitive": false
+        },
+        {
+          "CatalogName": "hive",
+          "SchemaName": "",
+          "TableName": "",
+          "Name": "snapshot_id",
+          "Label": "snapshot_id",
+          "Type": "bigint",
+          "Precision": 19,
+          "Scale": 0,
+          "Nullable": "UNKNOWN",
+          "CaseSensitive": false
+        },
+        {
+          "CatalogName": "hive",
+          "SchemaName": "",
+          "TableName": "",
+          "Name": "parent_id",
+          "Label": "parent_id",
+          "Type": "bigint",
+          "Precision": 19,
+          "Scale": 0,
+          "Nullable": "UNKNOWN",
+          "CaseSensitive": false
+        },
+        {
+          "CatalogName": "hive",
+          "SchemaName": "",
+          "TableName": "",
+          "Name": "operation",
+          "Label": "operation",
+          "Type": "varchar",
+          "Precision": 2147483647,
+          "Scale": 0,
+          "Nullable": "UNKNOWN",
+          "CaseSensitive": true
+        },
+        {
+          "CatalogName": "hive",
+          "SchemaName": "",
+          "TableName": "",
+          "Name": "manifest_list",
+          "Label": "manifest_list",
+          "Type": "varchar",
+          "Precision": 2147483647,
+          "Scale": 0,
+          "Nullable": "UNKNOWN",
+          "CaseSensitive": true
+        },
+        {
+          "CatalogName": "hive",
+          "SchemaName": "",
+          "TableName": "",
+          "Name": "summary",
+          "Label": "summary",
+          "Type": "map",
+          "Precision": 0,
+          "Scale": 0,
+          "Nullable": "UNKNOWN",
+          "CaseSensitive": false
+        }
+      ]
+    }
+  },
+  "ResponseMetadata": {
+    "RequestId": "d636722a-16b9-425b-920b-13955a9c3f7d",
+    "HTTPStatusCode": 200,
+    "HTTPHeaders": {
+      "date": "Wed, 18 Nov 2026 18:01:10 GMT",
+      "content-type": "application/x-amz-json-1.1",
+      "content-length": "3649",
+      "connection": "keep-alive",
+      "x-amzn-requestid": "d636722a-16b9-425b-920b-13955a9c3f7d"
+    },
+    "RetryAttempts": 0
+  }
+}
