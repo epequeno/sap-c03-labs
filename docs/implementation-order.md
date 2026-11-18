@@ -18,6 +18,8 @@ The order is driven by cost and by the number of external prerequisites, not by 
 
 Running every lab at its cap totals $28 against the $30 budget. Keep each lab inside its cap; a single overrun removes the margin for the rest.
 
+Lab 03 gate result (2026-11-18): `organizations:DescribeOrganization` succeeds, but `organizations:ListRoots` and `organizations:ListPolicies` return `AccessDeniedException`. The project profile is a member account; Lab 03 is artifact-only and no stack is registered.
+
 ## Gates before scheduling
 
 Run these read-only checks before writing a stack:

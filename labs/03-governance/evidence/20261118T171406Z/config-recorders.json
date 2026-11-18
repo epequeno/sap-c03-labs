@@ -1,0 +1,20 @@
+{
+  "ConfigurationRecorders": [
+    {
+      "name": "default",
+      "roleARN": "<role-arn>",
+      "allSupported": null,
+      "recordingGroup": {
+        "allSupported": true,
+        "includeGlobalResourceTypes": true,
+        "resourceTypes": [],
+        "exclusionByResourceTypes": {
+          "resourceTypes": []
+        },
+        "recordingStrategy": {
+          "useOnly": "ALL_SUPPORTED_RESOURCE_TYPES"
+        }
+      }
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 # SAP-C03 labs
 
-Seven small, disposable AWS labs that cover the SAP-C03 task list. Each one is deployed from CDK, evidenced, and destroyed the same day. Lab 02 is implemented; labs 01 and 03–07 are seeded with the artifact standard and are the study work.
+Seven small, disposable AWS labs that cover the SAP-C03 task list. Each one is evidenced, and every deployed lab is destroyed the same day. Lab 02 is implemented and evidenced. Lab 03 is artifact-only: the project profile is a member account without Organizations administration, so its SCP and bucket policies are reviewed artifacts rather than a stack. Labs 01 and 04–07 are seeded with the artifact standard and are the study work.
 
 The lab plan and study notes stay out of this repo; each lab README carries the question, artifact standard, and exam mapping. Implementation order and feasibility gates: `docs/implementation-order.md`.
 
@@ -23,6 +23,7 @@ just nag 02             # cdk-nag findings (advisory)
 just preflight          # identity, Region, and visible budget/monitor
 just deploy 02          # uv sync, synth, deploy, then capture evidence
 just evidence 02        # re-capture without deploying
+just evidence 03        # artifact-only; records the blocked Organizations calls
 just destroy 02         # cdk destroy, then assert no tagged resources remain
 ```
 
@@ -43,6 +44,8 @@ infra/
     lab02_multitenant_api.py # written
 labs/
   01-agentic-rag/            # README seeded with the artifact standard
+  02-multitenant-api/        # implemented and evidenced
+  03-governance/artifacts/   # reviewed SCP and bucket policies; no stack
   ...
   07-network/
 scripts/
@@ -66,7 +69,7 @@ Every lab README carries:
 1. **Question** — the architecture decision the lab tests.
 2. **Constraints** — cost, Region, account, availability target.
 3. **Diagram** — committed, Mermaid or SVG.
-4. **Deploy** — exact commands and prerequisites.
+4. **Deploy** — exact commands and prerequisites, or the documented blocked path.
 5. **Evidence** — CLI output, screenshots, logs, metrics, test results, under `labs/<slug>/evidence/<utc-timestamp>/`.
 6. **Failure** — one deliberately broken or denied path, with the observed result.
 7. **Cost** — actual spend from Cost Explorer, and the teardown timestamp, in `labs/<slug>/cost.md`.
@@ -81,6 +84,7 @@ This repo is public. Before committing:
 
 - No credentials, tokens, private keys, or `cdk.context.json`.
 - Redact account IDs, ARNs, principal names, request IDs, and raw bearer tokens in captured evidence. `evidence.sh` redacts the caller identity and account ID by default; lab hooks must not write raw tokens.
+- Do not commit AWS Artifact PDFs; record the report metadata and hash, not the document.
 - Keep `.env` and local profile configuration out of git. Only the profile name belongs in `scripts/lib.sh`.
 - Run `just verify` before committing.
 

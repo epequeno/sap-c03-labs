@@ -1,0 +1,10 @@
+{
+  "trailList": [
+    {
+      "Name": "main-trail",
+      "HomeRegion": "us-east-1",
+      "IsOrganizationTrail": true,
+      "S3BucketName": "aws-cloudtrail-logs-<account-id>-1d5f5aee"
+    }
+  ]
+}

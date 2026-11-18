@@ -1,0 +1,12 @@
+{
+  "report": {
+    "id": "report-9RNhIQWolrSBhJxz",
+    "name": "System and Organization Controls (SOC) 2 Report",
+    "category": "Certifications and Attestations",
+    "arn": "arn:aws:artifact:us-east-1::report/report-9RNhIQWolrSBhJxz:20"
+  },
+  "downloaded": true,
+  "bytes": 4751808,
+  "sha256": "7a5ca1185b71288c55da7226a933b413b0ec955091a4287e66ea9f8c872aa053",
+  "note": "PDF downloaded for verification; not committed because AWS Artifact reports are confidential."
+}

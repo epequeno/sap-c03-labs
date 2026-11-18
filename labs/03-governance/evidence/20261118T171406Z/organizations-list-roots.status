@@ -1,0 +1,1 @@
+blocked: aws organizations list-roots --output json

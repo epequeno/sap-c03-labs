@@ -1,0 +1,1 @@
+blocked: aws organizations list-policies --filter SERVICE_CONTROL_POLICY --output json
